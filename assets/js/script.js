@@ -5,7 +5,9 @@ var generateRandomCharacter = function (upper, lower, numeric, special) {
   var upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
   var numericCharacters = "0123456789";
-  var specialCharacters = "~`!@#$%^&*()_+-={}|[]\\:<>?,./;"
+  // special characters from: https://owasp.org/www-community/password-special-characters
+  // escape characters used for " and \
+  var specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
   // build the possibleCharacters string based on user-selected input
   var possibleCharacters = "";
@@ -67,6 +69,7 @@ var promptUserForYesNo = function (questionText) {
 var generatePassword = function () {
   var password = ""; // need to use an empty string to start with, otherwise we will return undefined as the first character   
   var prompt = "What is your desired password length? Password must be between 8 and 128 characters. Password length must be provided in whole numbers.";
+  console.log("Asking user for input: " + prompt);
   var length = parseFloat(window.prompt(prompt));
 
   // get desired password length and validate if the input is an integer and that it meets length requirements
