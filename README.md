@@ -1,4 +1,4 @@
-# Password Generator Challenge
+# Password Generator
 
 ## Purpose
 A website that generates a password based on user-selected criteria.
